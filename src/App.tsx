@@ -3,6 +3,7 @@ import Button from "./components/Button";
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import { Rating } from "react-simple-star-rating";
+import NProgress from "nprogress";
 
 const URL = "https://www.googleapis.com/books/v1/volumes?q=";
 
@@ -29,6 +30,8 @@ function App() {
 
   async function searchBook() {
     if (!searchInput) return;
+
+    NProgress.start();
     const response = await axios.get(URL + searchInput);
 
     if (response) {
@@ -36,6 +39,7 @@ function App() {
     } else {
       alert("ERROR");
     }
+    NProgress.done();
   }
 
   function updateWishlist(id: string, remove?: boolean) {

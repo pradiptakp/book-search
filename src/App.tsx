@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Button from "./components/Button";
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import { Rating } from "react-simple-star-rating";
-import { uuid } from "uuidv4";
 
 const URL = "https://www.googleapis.com/books/v1/volumes?q=";
 
